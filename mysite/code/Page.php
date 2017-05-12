@@ -76,8 +76,9 @@ class Page_Controller extends ContentController {
 		    CURLOPT_URL => 'https://euw1.api.riotgames.com/lol/static-data/v3/champions?champData=all&api_key=RGAPI-2bfd21e5-c70f-4062-95e5-e0217513e966'
 		));
 		$jsonData = json_decode(curl_exec($curl));
+		echo curl_getinfo($ch);
     	curl_close($curl);
-
+    	
     	foreach ($jsonData->data as $data) {
     		$id = $data->id;
     		$key = $data->key;
