@@ -73,12 +73,13 @@ class Page_Controller extends ContentController {
 		curl_setopt_array($curl, array(
 		    CURLOPT_RETURNTRANSFER => 1,
 		    // CURLOPT_URL => 'https://randomuser.me/api/'
-		    CURLOPT_URL => 'https://euw1.api.riotgames.com/lol/static-data/v3/champions?champData=all&api_key=RGAPI-2bfd21e5-c70f-4062-95e5-e0217513e966'
+		    CURLOPT_URL => 'https://euw1.api.riotgames.com/lol/static-data/v3/champions?champData=all&api_key=RGAPI-2bfd21e5-c70f-4062-95e5-e0217513e966',
+		    CURLOPT_PORT => 8080
 		));
 		$jsonData = json_decode(curl_exec($curl));
 		echo curl_getinfo($ch);
     	curl_close($curl);
-    	
+
     	foreach ($jsonData->data as $data) {
     		$id = $data->id;
     		$key = $data->key;
