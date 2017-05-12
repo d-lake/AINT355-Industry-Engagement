@@ -14,7 +14,7 @@
 		</div>
 	</div>
 
-	<%-- $retrieveChampionsForm --%>
+	$retrieveChampionsForm
 
 	<div class="upload modal fade" id="Champion_Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
 		<a class="modal-close" data-dismiss="modal" aria-label="Close"><i class="fa fa-times"></i></a>
