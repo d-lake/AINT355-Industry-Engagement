@@ -42,7 +42,7 @@ class LoginPage_Controller extends Page_Controller {
             $form->AddErrorMessage('Email', "Sorry, that email address already exists. Please choose another.", 'bad');
             Session::set("FormInfo.Form_RegistrationForm.data", $data);     
             return $this->redirectBack();           
-        }} else {
+        } else {
             $Member = new Member();
             $form->saveInto($Member);          
             $Member->write();
