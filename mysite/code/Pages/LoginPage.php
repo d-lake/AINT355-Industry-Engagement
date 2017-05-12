@@ -25,7 +25,6 @@ class LoginPage_Controller extends Page_Controller {
 	public function RegisterForm() {
         $fields = new FieldList(
             new EmailField('Email', 'Email <span class="required_field">*</span>'),
-            new TextField('UserName', 'User Name <span class="required_field">*</span>'),
             new ConfirmedPasswordField('Password', 'Password <span class="required_field">*</span>')
         );
 
@@ -43,11 +42,7 @@ class LoginPage_Controller extends Page_Controller {
             $form->AddErrorMessage('Email', "Sorry, that email address already exists. Please choose another.", 'bad');
             Session::set("FormInfo.Form_RegistrationForm.data", $data);     
             return $this->redirectBack();           
-        } else if($member = DataObject::get_one("Member", "`UserName` = '". Convert::raw2sql($data['UserName']) . "'")) {
-            $form->AddErrorMessage('UserName', "Sorry, that user name has already been taken. Please choose another.", 'bad');
-            Session::set("FormInfo.Form_RegistrationForm.data", $data);     
-            return $this->redirectBack();           
-        } else {
+        }} else {
             $Member = new Member();
             $form->saveInto($Member);          
             $Member->write();
